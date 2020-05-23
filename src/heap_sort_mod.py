@@ -1,6 +1,4 @@
-def swap_positions(array: list, pos1: int, pos2: int):
-    array[pos1], array[pos2] = array[pos2], array[pos1]
-    return array
+import generic_util as gu
 
 
 def max_heapify(array: list, pos: int, size: int):
@@ -17,7 +15,7 @@ def max_heapify(array: list, pos: int, size: int):
     if greater_pos != pos:
         # print("greater pos: array[{0}] = {1} > array[{2}] = {3} = ".
         #   format(str(greater_pos), str(array[greater_pos]), str(pos), str(array[pos])))
-        swap_positions(array, pos, greater_pos)
+        gu.swap_positions(array, pos, greater_pos)
         max_heapify(array, greater_pos, size)
 
 
@@ -26,9 +24,10 @@ def build_max_heap(array: list, size: int):
         max_heapify(array, pos, size)
 
 
-def heap_sort(array: list, size: int):
+def heap_sort(array: list):
     print(array)
+    size = len(array)
     for i in range(size):
         build_max_heap(array, size - i)
-        swap_positions(array, 0, size - i - 1)
+        gu.swap_positions(array, 0, size - i - 1)
     print(array)

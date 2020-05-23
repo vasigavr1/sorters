@@ -1,5 +1,5 @@
 from math import *  # floor(), ceil(), sqrt()
-import heap_sort_mod
+import heap_sort_mod, merge_sort_mod, insertion_sort_mod
 from random import randint, seed
 
 
@@ -14,8 +14,17 @@ def main():
         #print("array[" + str(pos) + "] = " + str(new_number))
         array.append(new_number)
 
-    heap_sort_mod.heap_sort(array, size)
+    array_heap_sorted = array.copy()
+    array_insertion_sorted = array.copy()
+    array_merge_sorted = array.copy()
 
+
+    heap_sort_mod.heap_sort(array_heap_sorted)
+    insertion_sort_mod.insertion_sort(array_insertion_sorted, True)
+    #merge_sort_mod.merge_sort(array)
+
+    array.sort()
+    assert array == array_heap_sorted == array_insertion_sorted
 
 if __name__ == '__main__':
     main()
