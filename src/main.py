@@ -19,12 +19,15 @@ def main():
     array_merge_sorted = array.copy()
 
 
-    heap_sort_mod.heap_sort(array_heap_sorted)
-    insertion_sort_mod.insertion_sort(array_insertion_sorted, True)
-    #merge_sort_mod.merge_sort(array)
+    # heap_sort_mod.heap_sort(array_heap_sorted)
+    # insertion_sort_mod.insertion_sort(array_insertion_sorted, True)
+    merge_sort_mod.merge_sort(array_merge_sorted)
 
+    # TEST
     array.sort()
-    assert array == array_heap_sorted == array_insertion_sorted
+    #print(array)
+    assert array_merge_sorted == array
+    # assert array == array_heap_sorted == array_insertion_sorted
 
 if __name__ == '__main__':
     main()

@@ -27,7 +27,8 @@ def build_max_heap(array: list, size: int):
 def heap_sort(array: list):
     print(array)
     size = len(array)
-    for i in range(size):
-        build_max_heap(array, size - i)
-        gu.swap_positions(array, 0, size - i - 1)
+    build_max_heap(array, size)
+    for i in range(1, size):
+        gu.swap_positions(array, 0, size - i )
+        max_heapify(array, 0, size - i)
     print(array)
